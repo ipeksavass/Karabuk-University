@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Öðrenci yapýsý
+// Ogrenci dugumu
 struct Student {
 	char name[50];
     int stNo;
@@ -9,19 +9,19 @@ struct Student {
     struct Student* next;
 };
 
-// Yeni bir öðrenci düðümü oluþturan iþlev
+// Yeni bir ogrenci dugumu olusturan islev
 struct Student* yeniOgrenci(int ogrenciNo, char ad[], int yas) {
     struct Student* yeniOgrenci = (struct Student*)malloc(sizeof(struct Student));
     yeniOgrenci->stNo = ogrenciNo;
     snprintf(yeniOgrenci->name, sizeof(yeniOgrenci->name), "%s", ad); 
-	/*Bu iþlev(snprintf), karakter dizisi hedefine bir biçim belirleyici kullanarak veriyi yazmak için kullanýlýr
-	ve hedef karakter dizisinin belirli bir boyutunu aþmamayý garanti eder.*/
+	/*Bu islev(snprintf), karakter dizisi hedefine bir bicim belirleyici kullanarak veriyi yazmak iÃ§in kullaniyor
+	ve hedef karakter dizisinin belirli bir boyutunu almayi garanti eder.*/
     yeniOgrenci->age = yas;
     yeniOgrenci->next = NULL;
     return yeniOgrenci;
 }
 
-// Yeni bir öðrenci düðümünü listenin sonuna ekleyen iþlev
+// Yeni bir ogrenci dugumunu listenin sonuna ekleyen islev
 void ogrenciEkle(struct Student** head, struct Student* yeniOgrenci) {
     if (*head == NULL) {
         *head = yeniOgrenci;
@@ -34,7 +34,7 @@ void ogrenciEkle(struct Student** head, struct Student* yeniOgrenci) {
     }
 }
 
-// Öðrenci bilgilerini ekrana yazdýran ve öðrenci sayýsýný hesaplayan iþlev
+// Ogrenci bilgilerini ekrana yazdiran ve ogrenci sayisini hesaplayan islev
 void ogrenciBilgileriniYazdir(struct Student* head) {
     struct Student* mevcut = head;
     int sayac = 1;
@@ -51,11 +51,11 @@ void ogrenciBilgileriniYazdir(struct Student* head) {
 int main() {
     struct Student* ogrenciListesi = NULL;
 
-    
-    // Öðrenci bilgilerini ekrana yazdýrma ve öðrenci sayýsýný sayma
+    //Ogrenci bilgilerini ve ogrenci sayisini ekrana yazdirma.
     ogrenciBilgileriniYazdir(ogrenciListesi);
+ 
 
-    // Belleði serbest býrakma
+    // Bellegi serbest birakma
     struct Student* mevcut = ogrenciListesi;
     while (mevcut != NULL) {
         struct Student* gecici = mevcut;
